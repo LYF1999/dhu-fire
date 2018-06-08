@@ -12,7 +12,7 @@ import {
   MatButtonModule,
   MatFormFieldModule,
   MatSnackBarModule,
-  MAT_SNACK_BAR_DEFAULT_OPTIONS
+  MAT_SNACK_BAR_DEFAULT_OPTIONS,
 } from '@angular/material';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
@@ -37,11 +37,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    WebviewDirective
-  ],
+  declarations: [AppComponent, HomeComponent, WebviewDirective],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
@@ -57,10 +53,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: (HttpLoaderFactory),
-        deps: [HttpClient]
-      }
-    })
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
   providers: [
     RouterAccessService,
@@ -68,9 +64,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     WebWorkerService,
     {
       provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
-      useValue: {duration: 2000, horizontalPosition: 'end'}
-    }
+      useValue: { duration: 2000, horizontalPosition: 'end' },
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

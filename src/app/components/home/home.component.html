@@ -1,21 +1,9 @@
 <div class="container">
   <mat-form-field>
-    <input
-      matInput
-      [(ngModel)]="username"
-      type="text"
-      required
-      placeholder="请输入学号"
-    >
+    <input matInput [(ngModel)]="username" type="text" required placeholder="请输入学号">
   </mat-form-field>
   <mat-form-field>
-    <input
-      [(ngModel)]="password"
-      matInput
-      type="password"
-      required
-      placeholder="请输入密码"
-    >
+    <input [(ngModel)]="password" matInput type="password" required placeholder="请输入密码">
   </mat-form-field>
   <button mat-button (click)="login()">登陆</button>
 </div>
