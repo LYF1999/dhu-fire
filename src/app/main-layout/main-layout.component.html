@@ -1,0 +1,18 @@
+<div>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav [mode]="'over'">
+      <p class="text-center">姓名:{{ principal.user.name }}</p>
+      <p class="text-center">学号:{{ principal.user.username }}</p>
+      <button mat-button style="width: 100%" >选课</button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar>
+        <h2 class="text-center" style="width: 100%">{{ curTitle }}</h2>
+        <i style="font-size: 20px; position: absolute" class="fas fa-bars" (click)="sidenav.toggle()"></i>
+      </mat-toolbar>
+      <mat-card style="flex-grow: 1">
+        <router-outlet></router-outlet>
+      </mat-card>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
